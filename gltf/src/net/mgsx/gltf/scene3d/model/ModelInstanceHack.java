@@ -83,7 +83,7 @@ public class ModelInstanceHack extends ModelInstance
 	public Renderable getRenderable (final Renderable out, final Node node, final NodePart nodePart) {
 		super.getRenderable(out, node, nodePart);
 		if(nodePart instanceof NodePartPlus){
-			out.userData = ((NodePartPlus) nodePart).morphTargets;
+			out.userData = new UserDataWrapper(((NodePartPlus) nodePart).morphTargets, out.userData);
 		}
 		return out;
 	}

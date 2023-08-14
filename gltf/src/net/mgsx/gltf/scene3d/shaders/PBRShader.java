@@ -32,6 +32,7 @@ import net.mgsx.gltf.scene3d.attributes.PBRVertexAttributes;
 import net.mgsx.gltf.scene3d.attributes.PBRVolumeAttribute;
 import net.mgsx.gltf.scene3d.lights.DirectionalLightEx;
 import net.mgsx.gltf.scene3d.lights.DirectionalShadowLight;
+import net.mgsx.gltf.scene3d.model.UserDataWrapper;
 import net.mgsx.gltf.scene3d.model.WeightVector;
 
 public class PBRShader extends DefaultShader
@@ -753,16 +754,16 @@ public class PBRShader extends DefaultShader
 		}
 		
 		if(u_morphTargets1 >= 0){
-			if(renderable.userData instanceof WeightVector){
-				WeightVector weightVector = (WeightVector)renderable.userData;
+			if(renderable.userData instanceof UserDataWrapper){
+				WeightVector weightVector = ((UserDataWrapper)renderable.userData).getMorphTargets();
 				program.setUniformf(u_morphTargets1, weightVector.get(0), weightVector.get(1), weightVector.get(2), weightVector.get(3));
 			}else{
 				program.setUniformf(u_morphTargets1, 0, 0, 0, 0);
 			}
 		}
 		if(u_morphTargets2 >= 0){
-			if(renderable.userData instanceof WeightVector){
-				WeightVector weightVector = (WeightVector)renderable.userData;
+			if(renderable.userData instanceof UserDataWrapper){
+				WeightVector weightVector = ((UserDataWrapper)renderable.userData).getMorphTargets();
 				program.setUniformf(u_morphTargets2, weightVector.get(4), weightVector.get(5), weightVector.get(6), weightVector.get(7));
 			}else{
 				program.setUniformf(u_morphTargets2, 0, 0, 0, 0);

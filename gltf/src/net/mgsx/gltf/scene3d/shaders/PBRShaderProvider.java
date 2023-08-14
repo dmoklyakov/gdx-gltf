@@ -486,11 +486,6 @@ public class PBRShaderProvider extends DefaultShaderProvider
 		PBRShader shader = createShader(renderable, config, prefix);
 		checkShaderCompilation(shader.program);
 		
-		// prevent infinite loop (TODO remove this for libgdx 1.9.12+)
-		if(!shader.canRender(renderable)){
-			throw new GdxRuntimeException("cannot render with this shader");
-		}
-		
 		return shader;
 	}
 	

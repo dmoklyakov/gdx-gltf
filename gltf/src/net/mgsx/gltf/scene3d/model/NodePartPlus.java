@@ -17,7 +17,7 @@ public class NodePartPlus extends NodePart{
 		out.material = material;
 		out.meshPart.set(meshPart);
 		out.bones = bones;
-		out.userData = morphTargets;
+		out.userData = new UserDataWrapper(morphTargets, out.userData);
 		return out;
 	}
 	
