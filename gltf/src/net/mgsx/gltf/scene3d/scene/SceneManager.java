@@ -38,7 +38,7 @@ import net.mgsx.gltf.scene3d.utils.EnvironmentUtil;
  */
 public class SceneManager implements Disposable {
 	
-	private final Array<RenderableProvider> renderableProviders = new Array<RenderableProvider>();
+	protected final Array<RenderableProvider> renderableProviders = new Array<RenderableProvider>();
 	
 	private ModelBatch batch;
 	private ModelBatch depthBatch;
